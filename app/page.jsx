@@ -176,7 +176,7 @@ export default function Home() {
           ))}
         </div>
         <div className="avail">
-          <span className="avail-dot"></span> {homeContent.availability}
+          {homeContent.availability}
         </div>
       </div>
 
