@@ -1,15 +1,22 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { homeContent } from '../content/home'
 import { hackerHome } from '../content/hacker'
 import { creativeHome } from '../content/creative'
 import { useTheme } from '../context/ThemeContext'
 import RotatingText from '../components/effects/RotatingText'
 import ShinyText from '../components/effects/ShinyText'
+import { getPosts } from '../lib/wordpress'
 
 export default function Home() {
   const { isHacker, isCreative } = useTheme()
+  const [recentPosts, setRecentPosts] = useState([])
+
+  useEffect(() => {
+    getPosts().then(posts => setRecentPosts(posts.slice(0, 3)))
+  }, [])
 
   if (isHacker) {
     const h = hackerHome
@@ -196,15 +203,15 @@ export default function Home() {
       </div>
 
       <div className="home-writing stagger">
-        <div className="sec-kicker">{homeContent.recentWriting.title}</div>
-        {homeContent.recentWriting.posts.map((post, i) => (
-          <div key={i} className="art-row">
+        <div className="sec-kicker">Recent writing</div>
+        {recentPosts.map((post, i) => (
+          <Link key={post.slug || i} href={`/writing/${post.slug}`} className="art-row" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div>
               <span className="art-title">{post.title}</span>
-              <span className="art-tag">{post.tag}</span>
+              <span className="art-tag">{post.type}</span>
             </div>
             <div className="art-meta">{post.date}</div>
-          </div>
+          </Link>
         ))}
         <div className="art-row" style={{ border: 'none', paddingTop: '20px' }}>
           <Link href="/writing" className="btn-s" style={{ fontSize: '10px' }}>All writing →</Link>

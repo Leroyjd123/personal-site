@@ -15,27 +15,4 @@ export const homeContent = {
     { value: '10+', label: 'Product teardowns' },
     { value: '5', label: 'Languages spoken' },
   ],
-  recentWriting: {
-    title: 'Recent writing',
-    posts: [
-      {
-        title: 'A PM\'s honest take on building with AI in 2026',
-        tag: 'Essay',
-        date: 'May 2026',
-        slug: 'ai-2026'
-      },
-      {
-        title: 'What a hyperlocal eCommerce teardown taught me',
-        tag: 'Teardown',
-        date: 'Apr 2026',
-        slug: 'ecommerce-teardown'
-      },
-      {
-        title: 'Stillness',
-        tag: 'Poem',
-        date: 'Mar 2026',
-        slug: 'stillness'
-      }
-    ]
-  }
 }
