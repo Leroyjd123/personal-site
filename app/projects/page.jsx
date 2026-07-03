@@ -70,7 +70,7 @@ export default function Projects() {
               <div className="proj-desc"><ProjectDescription text={p.description} easterEgg={p.easterEgg} /></div>
               {p.link && (
                 <a href={p.link} target="_blank" rel="noopener noreferrer" className="proj-link">
-                  View on LinkedIn →
+                  {p.linkLabel || 'View →'}
                 </a>
               )}
             </div>

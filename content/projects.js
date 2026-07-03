@@ -29,20 +29,21 @@ export const projectsContent = {
     },
     {
       num: '04',
-      title: 'Product Teardowns',
-      tagline: 'Studying products I admire, in public.',
-      description: '10+ deep-dives into products I find interesting, published on LinkedIn — onboarding, engagement, monetization, and usability trade-offs. The goal is always to understand, not critique.',
-      status: { type: 'live', label: 'Live' },
-      link: 'https://linkedin.com/in/leroyjd'
-    },
-    {
-      num: '05',
       title: 'Dhisingara Technologies',
       tagline: 'Elegant Wisdom, applied to products.',
       description: 'A product-led creative collective I co-founded, built on one idea: Elegant Wisdom — Dhi (Intellect) + Singara (Beauty). Products that reduce complexity instead of adding to it.',
       status: { type: 'stealth', label: 'Stealth' },
       link: null,
       easterEgg: { trigger: 'Elegant Wisdom', tooltip: '✦ beauty in restraint, wisdom in form' }
+    },
+    {
+      num: '05',
+      title: 'Product Teardowns',
+      tagline: 'Studying products I admire, in public.',
+      description: '10+ deep-dives into products I find interesting — onboarding, engagement, monetization, and usability trade-offs. The goal is always to understand, not critique.',
+      status: { type: 'live', label: 'Live' },
+      link: 'https://drive.google.com/drive/folders/18Ww8XDfDVRDea-uX3Z4rVbw14nK0EjD9',
+      linkLabel: 'View teardowns →'
     }
   ]
 }
