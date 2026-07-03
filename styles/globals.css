@@ -14,6 +14,9 @@
   --jali:rgba(180,160,120,0.055);
 }
 
+/* Short, smooth crossfade when switching theme (light/dark/system) */
+*{transition:background-color .18s ease,color .18s ease,border-color .18s ease,fill .18s ease,stroke .18s ease;}
+
 /* ═══ HACKER MODE TOKENS ═══ */
 [data-hacker=true]{
   --hk-green:#00ff41;
@@ -192,13 +195,18 @@ nav{
 .nl.on{color:var(--accent);}
 .nl.on::after{width:55%;left:22.5%;}
 
-.theme-btn{
-  width:32px;height:32px;border-radius:50%;border:0.5px solid var(--border);
-  background:var(--bg2);color:var(--text3);cursor:pointer;
-  font-size:15px;display:flex;align-items:center;justify-content:center;
-  margin-left:14px;transition:all .3s;
+.theme-toggle{
+  display:flex;align-items:center;margin-left:14px;
+  border:0.5px solid var(--border);border-radius:2px;overflow:hidden;
 }
-.theme-btn:hover{transform:rotate(25deg);color:var(--text);}
+.theme-opt{
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;color:var(--text3);cursor:pointer;
+  transition:color .18s ease,background-color .18s ease;
+}
+.theme-opt+.theme-opt{border-left:0.5px solid var(--border);}
+.theme-opt:hover{color:var(--text);}
+.theme-opt.on{background:var(--text);color:var(--bg);}
 
 /* ═══ MAIN ═══ */
 main{position:relative;z-index:2;padding-top:60px;}
