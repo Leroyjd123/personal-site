@@ -28,6 +28,7 @@ const THEME_OPTIONS = [
   { value: 'dark',   label: 'Dark theme',   Icon: MoonIcon },
   { value: 'system', label: 'System theme', Icon: SystemIcon },
 ]
+const NEXT_THEME = { light: 'dark', dark: 'system', system: 'light' }
 
 function NavComponent() {
   const pathname = usePathname()
@@ -60,6 +61,8 @@ function NavComponent() {
     localStorage.setItem('leroy-theme', pref)
     applyResolvedTheme(pref)
   }
+
+  const cycleTheme = () => selectTheme(NEXT_THEME[themePref])
 
   const getActiveClass = (path) => pathname === path ? 'nl on' : 'nl'
 
@@ -103,21 +106,17 @@ function NavComponent() {
           <Link key={href} href={href} className={getActiveClass(href)}>{label}</Link>
         ))}
         {!isHacker && !isCreative && (
-          <div className="theme-toggle" role="radiogroup" aria-label="Theme">
-            {THEME_OPTIONS.map(({ value, label, Icon }) => (
-              <button
-                key={value}
-                type="button"
-                className={`theme-opt${themePref === value ? ' on' : ''}`}
-                onClick={() => selectTheme(value)}
-                role="radio"
-                aria-checked={themePref === value}
-                title={label}
-              >
-                <Icon />
-              </button>
-            ))}
-          </div>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={cycleTheme}
+            title={`Theme: ${THEME_OPTIONS.find(o => o.value === themePref)?.label} (click to change)`}
+          >
+            {(() => {
+              const Icon = THEME_OPTIONS.find(o => o.value === themePref)?.Icon || SunIcon
+              return <Icon />
+            })()}
+          </button>
         )}
         <button
           className={`hacker-btn${isHacker || (booting && !isCreative) ? ' active' : ''}`}
