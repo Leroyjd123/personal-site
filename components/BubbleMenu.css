@@ -48,6 +48,7 @@
   font-size: 15px;
   font-weight: 300;
   letter-spacing: 0.14em;
+  text-decoration: none;
 }
 
 .bubble-menu .toggle-bubble {
@@ -62,7 +63,9 @@
 }
 
 .bubble-menu .menu-btn {
-  border: 0.5px solid var(--border);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -130,34 +133,29 @@
 }
 
 .bubble-menu-items .pill-link {
-  --pill-bg: var(--bg2);
   --pill-color: var(--text);
-  --hover-bg: var(--accent);
-  --hover-color: #fff;
+  --hover-color: var(--accent);
   width: 100%;
   padding: 18px 28px;
   font-size: clamp(1.4rem, 5vw, 2rem);
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   letter-spacing: 0.08em;
-  border-radius: 2px;
-  background: var(--pill-bg);
+  background: transparent;
   color: var(--pill-color);
   text-decoration: none;
-  border: 0.5px solid var(--border);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+  transition: color 0.25s ease, transform 0.2s ease;
   will-change: transform;
   overflow: hidden;
 }
 
 .bubble-menu-items .pill-link:hover {
-  background: var(--hover-bg);
   color: var(--hover-color);
   transform: scale(1.02);
-  border-color: transparent;
 }
 
 .bubble-menu-items .pill-link:active {

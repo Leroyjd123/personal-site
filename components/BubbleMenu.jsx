@@ -96,7 +96,6 @@ export default function BubbleMenu({
           onClick={handleToggle}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-pressed={isMenuOpen}
-          style={{ background: menuBg }}
         >
           <span className="menu-line" style={{ background: menuColor }} />
           <span className="menu-line" style={{ background: menuColor }} />
