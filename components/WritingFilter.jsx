@@ -2,6 +2,13 @@
 
 import { useState, useMemo } from 'react'
 import ArticleRow from './ArticleRow'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './ui/select'
 
 export default function WritingFilter({ posts = [] }) {
   const [filter, setFilter] = useState('all')
@@ -22,20 +29,26 @@ export default function WritingFilter({ posts = [] }) {
   return (
     <>
       <div className="filter-row" id="fbrow">
-        <label htmlFor="type-filter" className="filter-label">Filter by type</label>
-        <select
-          id="type-filter"
-          className="filter-select"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
-          <option value="all">All ({posts.length})</option>
-          {types.map(({ type, label }) => (
-            <option key={type} value={type}>
-              {label} ({posts.filter(p => p.type === type).length})
-            </option>
-          ))}
-        </select>
+        <span className="filter-label">Filter by type</span>
+        <Select value={filter} onValueChange={setFilter}>
+          <SelectTrigger className="!h-auto w-[190px] rounded-[2px] border-[0.5px] border-[var(--border)] bg-[var(--card)] px-3 py-[6px] text-[12px] font-normal text-[var(--text)] font-[DM_Sans,sans-serif] shadow-none focus-visible:ring-0 focus-visible:border-[var(--text3)] data-[state=open]:border-[var(--text3)]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="rounded-[2px] border-[0.5px] border-[var(--border)] bg-[var(--card)] text-[var(--text)] shadow-[0_4px_16px_rgba(0,0,0,0.08)] ring-0">
+            <SelectItem value="all" className="rounded-[1px] text-[12px] data-[highlighted]:bg-[var(--bg2)] data-[highlighted]:text-[var(--text)]">
+              All ({posts.length})
+            </SelectItem>
+            {types.map(({ type, label }) => (
+              <SelectItem
+                key={type}
+                value={type}
+                className="rounded-[1px] text-[12px] data-[highlighted]:bg-[var(--bg2)] data-[highlighted]:text-[var(--text)]"
+              >
+                {label} ({posts.filter(p => p.type === type).length})
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div id="wlist">

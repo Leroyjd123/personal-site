@@ -618,12 +618,6 @@ main{position:relative;z-index:2;padding-top:60px;}
 .writing-intro{margin:18px 0 28px;max-width:500px;}
 .filter-row{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
 .filter-label{font-size:10px;letter-spacing:0.09em;color:var(--text3);}
-.filter-select{
-  font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text);
-  background:var(--card);border:0.5px solid var(--border);border-radius:2px;
-  padding:6px 12px;cursor:pointer;transition:border-color .2s;
-}
-.filter-select:hover,.filter-select:focus{border-color:var(--text3);outline:none;}
 
 /* ═══ CONTACT FIT GRID ═══ */
 .contact-fit-grid{
@@ -1694,17 +1688,6 @@ footer{
 .cr-link-row:hover .cr-link-arrow{ transform:translate(3px,-3px); }
 
 /* ── Writing page in creative mode ── */
-[data-mode=creative] .filter-select{
-  border-color:var(--cr-border);
-  color:var(--cr-text2);
-  background:var(--cr-card);
-  font-family:var(--cr-font);
-  font-style:italic;
-}
-[data-mode=creative] .filter-select:hover,[data-mode=creative] .filter-select:focus{
-  border-color:var(--cr-lavender);
-  color:var(--cr-lavender);
-}
 [data-mode=creative] .art-title{ font-family:var(--cr-font); font-style:italic; }
 [data-mode=creative] .art-row{ border-color:var(--cr-border); }
 

@@ -1,3 +1,4 @@
+import '../styles/tailwind.css'
 import '../styles/globals.css'
 import ClientProviders from '../components/ClientProviders'
 
