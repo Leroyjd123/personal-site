@@ -3,17 +3,19 @@
 import { projectsContent } from '../../content/projects'
 import { hackerProjects } from '../../content/hacker'
 import { useTheme } from '../../context/ThemeContext'
-import dynamic from 'next/dynamic'
 
-const MagicBento = dynamic(() => import('../../components/MagicBento'), { ssr: false })
-
-const bentoCards = projectsContent.projects.map(p => ({
-  num: p.num,
-  label: p.title,
-  title: p.title,
-  description: p.description,
-  status: p.status,
-}))
+function ProjectDescription({ text, easterEgg }) {
+  if (!easterEgg) return text
+  const parts = text.split(easterEgg.trigger)
+  if (parts.length < 2) return text
+  return (
+    <>
+      {parts[0]}
+      <span className="proj-egg" title={easterEgg.tooltip}>{easterEgg.trigger}</span>
+      {parts[1]}
+    </>
+  )
+}
 
 export default function Projects() {
   const { isHacker } = useTheme()
@@ -56,17 +58,23 @@ export default function Projects() {
           Things I'm<br /><em>making</em>.
         </h2>
         <p className="body-text proj-intro">{projectsContent.intro}</p>
-        <MagicBento
-          cards={bentoCards}
-          enableStars={true}
-          enableSpotlight={true}
-          enableBorderGlow={true}
-          enableTilt={false}
-          enableMagnetism={true}
-          clickEffect={true}
-          spotlightRadius={260}
-          particleCount={6}
-        />
+        <div className="proj-grid">
+          {projectsContent.projects.map((p, i) => {
+            const Tag = p.link ? 'a' : 'div'
+            return (
+              <Tag
+                key={i}
+                className="proj-card"
+                {...(p.link ? { href: p.link, target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                <div className="proj-num">{p.num}</div>
+                <div className="proj-title">{p.title}</div>
+                <div className="proj-desc"><ProjectDescription text={p.description} easterEgg={p.easterEgg} /></div>
+                <div className="proj-status">{p.status}</div>
+              </Tag>
+            )
+          })}
+        </div>
       </div>
     </>
   )

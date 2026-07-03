@@ -602,6 +602,8 @@ main{position:relative;z-index:2;padding-top:60px;}
 .proj-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:9px;}
 .proj-desc{font-size:12px;color:var(--text2);line-height:1.72;font-weight:300;}
 .proj-status{font-size:10px;margin-top:16px;color:var(--text3);letter-spacing:0.07em;}
+.proj-egg{border-bottom:1px dotted var(--text3);cursor:help;}
+.proj-card[href]{text-decoration:none;display:block;}
 
 /* ═══ WRITING ═══ */
 .writing-intro{margin:18px 0 28px;max-width:500px;}
