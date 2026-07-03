@@ -86,9 +86,9 @@ export default function BubbleMenu({
   return (
     <>
       <nav className="bubble-menu fixed" aria-label="Mobile navigation">
-        <div className="bubble logo-bubble" style={{ background: menuBg, color: menuColor }}>
-          <span className="logo-content">L D&apos;Sa</span>
-        </div>
+        <Link href="/" className="bubble logo-bubble" style={{ background: menuBg, color: menuColor }}>
+          <span className="logo-content">LJD</span>
+        </Link>
 
         <button
           type="button"
