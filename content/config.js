@@ -6,10 +6,11 @@ export const siteConfig = {
   email: 'leroy@leroydsa.com',
   linkedin: 'https://linkedin.com/in/leroydsa',
   baseUrl: 'https://leroydsa.com',
+  resumeUrl: 'https://drive.google.com/file/d/1Fry3DVGd3Rm_ojhUTx7eMtXgUVWJm1iq/view?usp=drive_link',
 }
 
 export const contactLinks = [
   { label: 'Email', href: 'mailto:leroy@leroydsa.com', arrow: true },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/leroydsa', arrow: true, external: true },
-  { label: 'Resume', href: '#', arrow: true, disabled: true },
+  { label: 'Resume', href: siteConfig.resumeUrl, arrow: true, external: true },
 ]

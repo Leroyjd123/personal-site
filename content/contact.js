@@ -1,3 +1,5 @@
+import { siteConfig } from './config'
+
 export const contactContent = {
   kicker: 'Contact',
   availability: 'Open to remote roles & select opportunities in Udupi / Mangalore / Bangalore',
@@ -30,9 +32,9 @@ export const contactContent = {
     },
     {
       label: 'Resume',
-      sublabel: 'Available on request',
-      href: '#',
-      disabled: true
+      sublabel: 'View on Google Drive',
+      href: siteConfig.resumeUrl,
+      external: true
     }
   ]
 }

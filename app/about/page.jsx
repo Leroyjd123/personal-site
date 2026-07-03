@@ -3,6 +3,7 @@
 import { aboutContent } from '../../content/about'
 import { hackerAbout } from '../../content/hacker'
 import { creativeAbout } from '../../content/creative'
+import { siteConfig } from '../../content/config'
 import { useTheme } from '../../context/ThemeContext'
 import DecryptedText from '../../components/effects/DecryptedText'
 
@@ -175,7 +176,7 @@ export default function About() {
         </div>
       </div>
 
-      <button className="btn-s" style={{ fontSize: '11px' }}>↓ Resume</button>
+      <a href={siteConfig.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn-s" style={{ fontSize: '11px' }}>↓ Resume</a>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import { siteConfig } from './config'
+
 export const hackerHome = {
   hero: {
     greeting: 'leroy@ljd:~$',
@@ -233,6 +235,6 @@ export const hackerContact = {
     { label: 'email',    value: 'leroy.social@gmail.com',  href: 'mailto:leroy.social@gmail.com', external: false },
     { label: 'linkedin', value: '/in/leroyjd',             href: 'https://linkedin.com/in/leroyjd', external: true },
     { label: 'blog',     value: 'ljdblog.wordpress.com',   href: 'https://ljdblog.wordpress.com', external: true  },
-    { label: 'resume',   value: '[on_request]',            href: '#', disabled: true                              },
+    { label: 'resume',   value: '[view_pdf]',               href: siteConfig.resumeUrl, external: true              },
   ],
 }

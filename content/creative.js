@@ -1,3 +1,5 @@
+import { siteConfig } from './config'
+
 export const creativeHome = {
   kicker: 'words · music · wonder',
   headline: 'Some people keep diaries.',
@@ -81,6 +83,6 @@ export const creativeContact = {
     { label: 'Email me', value: 'leroy.social@gmail.com', href: 'mailto:leroy.social@gmail.com', external: false },
     { label: 'My blog', value: 'ljdblog.wordpress.com', href: 'https://ljdblog.wordpress.com', external: true },
     { label: 'LinkedIn', value: '/in/leroyjd', href: 'https://linkedin.com/in/leroyjd', external: true },
-    { label: 'Resume', value: 'on request ✨', href: '#', disabled: true },
+    { label: 'Resume', value: 'view ✨', href: siteConfig.resumeUrl, external: true },
   ],
 }
