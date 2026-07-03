@@ -1,10 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import dynamic from 'next/dynamic'
 import ArticleRow from './ArticleRow'
-
-const CardNav = dynamic(() => import('./CardNav'), { ssr: false })
 
 export default function WritingFilter({ posts = [] }) {
   const [filter, setFilter] = useState('all')
@@ -22,34 +19,23 @@ export default function WritingFilter({ posts = [] }) {
     return filter === 'all' ? posts : posts.filter(post => post.type === filter)
   }, [posts, filter])
 
-  const cardNavItems = types.slice(0, 3).map(({ type, label }) => ({
-    label,
-    links: [
-      { label: `All ${label.toLowerCase()} (${posts.filter(p => p.type === type).length})`, ariaLabel: `Show ${label}`, onClick: () => setFilter(type) },
-      { label: 'Show all', ariaLabel: 'Show all posts', onClick: () => setFilter('all') },
-    ]
-  }))
-
   return (
     <>
-      <CardNav label="Browse by type" items={cardNavItems} />
-
       <div className="filter-row" id="fbrow">
-        <button
-          className={`fb ${filter === 'all' ? 'on' : ''}`}
-          onClick={() => setFilter('all')}
+        <label htmlFor="type-filter" className="filter-label">Filter by type</label>
+        <select
+          id="type-filter"
+          className="filter-select"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
         >
-          All
-        </button>
-        {types.map(({ type, label }) => (
-          <button
-            key={type}
-            className={`fb ${filter === type ? 'on' : ''}`}
-            onClick={() => setFilter(type)}
-          >
-            {label}
-          </button>
-        ))}
+          <option value="all">All ({posts.length})</option>
+          {types.map(({ type, label }) => (
+            <option key={type} value={type}>
+              {label} ({posts.filter(p => p.type === type).length})
+            </option>
+          ))}
+        </select>
       </div>
 
       <div id="wlist">
