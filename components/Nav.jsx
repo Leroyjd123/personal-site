@@ -54,14 +54,14 @@ function NavComponent() {
 
   return (
     <nav>
-      <div className="logo" id="logo-el">
+      <Link href="/" className="logo" id="logo-el">
         {isHacker
           ? <span className="logo-hacker">{'>'}_leroy.dsouza</span>
           : isCreative
           ? <span className="logo-creative">✦ leroy</span>
           : 'Leroy Dsouza'
         }
-      </div>
+      </Link>
       <div className="nav-r">
         {navLinks.map(({ href, label }) => (
           <Link key={href} href={href} className={getActiveClass(href)}>{label}</Link>
