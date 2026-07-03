@@ -208,7 +208,7 @@ export default function Home() {
           <Link key={post.slug || i} href={`/writing/${post.slug}`} className="art-row" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div>
               <span className="art-title">{post.title}</span>
-              <span className="art-tag">{post.type}</span>
+              <span className="art-tag">{post.tag}</span>
             </div>
             <div className="art-meta">{post.date}</div>
           </Link>

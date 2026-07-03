@@ -13,13 +13,13 @@ export const metadata = {
 }
 
 const FALLBACK_POSTS = [
-  { title: "A PM's honest take on building with AI in 2026", date: 'May 2026', type: 'essay', slug: 'ai-2026' },
-  { title: 'What a hyperlocal eCommerce teardown taught me', date: 'Apr 2026', type: 'teardown', slug: 'ecommerce-teardown' },
-  { title: 'Stillness', date: 'Mar 2026', type: 'creative', slug: 'stillness' },
-  { title: 'PriceLabs — dynamic pricing for short-term rentals', date: 'Feb 2026', type: 'teardown', slug: 'pricelabs' },
-  { title: 'Why eCommerce in India is still misunderstood', date: 'Jan 2026', type: 'essay', slug: 'ecommerce-india' },
-  { title: 'Between two languages', date: 'Dec 2025', type: 'creative', slug: 'two-languages' },
-  { title: 'The coast at 5am', date: 'Oct 2025', type: 'creative', slug: 'coast-5am' },
+  { title: "A PM's honest take on building with AI in 2026", date: 'May 2026', type: 'essay', tag: 'Essay', slug: 'ai-2026' },
+  { title: 'What a hyperlocal eCommerce teardown taught me', date: 'Apr 2026', type: 'teardown', tag: 'Teardown', slug: 'ecommerce-teardown' },
+  { title: 'Stillness', date: 'Mar 2026', type: 'creative', tag: 'Creative', slug: 'stillness' },
+  { title: 'PriceLabs — dynamic pricing for short-term rentals', date: 'Feb 2026', type: 'teardown', tag: 'Teardown', slug: 'pricelabs' },
+  { title: 'Why eCommerce in India is still misunderstood', date: 'Jan 2026', type: 'essay', tag: 'Essay', slug: 'ecommerce-india' },
+  { title: 'Between two languages', date: 'Dec 2025', type: 'creative', tag: 'Creative', slug: 'two-languages' },
+  { title: 'The coast at 5am', date: 'Oct 2025', type: 'creative', tag: 'Creative', slug: 'coast-5am' },
 ]
 
 export default async function Writing() {

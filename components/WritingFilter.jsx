@@ -9,38 +9,26 @@ const CardNav = dynamic(() => import('./CardNav'), { ssr: false })
 export default function WritingFilter({ posts = [] }) {
   const [filter, setFilter] = useState('all')
 
+  const types = useMemo(() => {
+    const seen = new Map()
+    posts.forEach(post => {
+      if (post.type && !seen.has(post.type)) seen.set(post.type, post.tag || post.type)
+    })
+    return Array.from(seen, ([type, label]) => ({ type, label }))
+  }, [posts])
+
   const filteredPosts = useMemo(() => {
     if (!posts || posts.length === 0) return []
     return filter === 'all' ? posts : posts.filter(post => post.type === filter)
   }, [posts, filter])
 
-  const essayCount    = posts.filter(p => p.type === 'essay').length
-  const teardownCount = posts.filter(p => p.type === 'teardown').length
-  const creativeCount = posts.filter(p => p.type === 'creative').length
-
-  const cardNavItems = [
-    {
-      label: 'Essays',
-      links: [
-        { label: `All essays (${essayCount})`,    ariaLabel: 'Show essays',    onClick: () => setFilter('essay') },
-        { label: 'Show all',                       ariaLabel: 'Show all posts', onClick: () => setFilter('all') },
-      ]
-    },
-    {
-      label: 'Teardowns',
-      links: [
-        { label: `All teardowns (${teardownCount})`, ariaLabel: 'Show teardowns',   onClick: () => setFilter('teardown') },
-        { label: 'Show all',                          ariaLabel: 'Show all posts',   onClick: () => setFilter('all') },
-      ]
-    },
-    {
-      label: 'Creative',
-      links: [
-        { label: `All creative (${creativeCount})`, ariaLabel: 'Show creative work', onClick: () => setFilter('creative') },
-        { label: 'Show all',                         ariaLabel: 'Show all posts',     onClick: () => setFilter('all') },
-      ]
-    },
-  ]
+  const cardNavItems = types.slice(0, 3).map(({ type, label }) => ({
+    label,
+    links: [
+      { label: `All ${label.toLowerCase()} (${posts.filter(p => p.type === type).length})`, ariaLabel: `Show ${label}`, onClick: () => setFilter(type) },
+      { label: 'Show all', ariaLabel: 'Show all posts', onClick: () => setFilter('all') },
+    ]
+  }))
 
   return (
     <>
@@ -53,24 +41,15 @@ export default function WritingFilter({ posts = [] }) {
         >
           All
         </button>
-        <button
-          className={`fb ${filter === 'essay' ? 'on' : ''}`}
-          onClick={() => setFilter('essay')}
-        >
-          Essays
-        </button>
-        <button
-          className={`fb ${filter === 'teardown' ? 'on' : ''}`}
-          onClick={() => setFilter('teardown')}
-        >
-          Teardowns
-        </button>
-        <button
-          className={`fb ${filter === 'creative' ? 'on' : ''}`}
-          onClick={() => setFilter('creative')}
-        >
-          Creative
-        </button>
+        {types.map(({ type, label }) => (
+          <button
+            key={type}
+            className={`fb ${filter === type ? 'on' : ''}`}
+            onClick={() => setFilter(type)}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
       <div id="wlist">
@@ -80,7 +59,7 @@ export default function WritingFilter({ posts = [] }) {
           ))
         ) : (
           <div style={{ padding: '20px', color: 'var(--text3)', fontSize: '12px' }}>
-            No {filter !== 'all' ? filter : ''} posts found.
+            No posts found.
           </div>
         )}
       </div>
