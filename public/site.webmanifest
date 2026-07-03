@@ -1,0 +1,13 @@
+{
+  "name": "Leroy Dsouza",
+  "short_name": "Leroy",
+  "description": "Product manager, writer, and maker based on the Karnataka coast.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f7",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
