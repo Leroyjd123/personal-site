@@ -58,23 +58,24 @@ export default function Projects() {
           Things I'm<br /><em>making</em>.
         </h2>
         <p className="body-text proj-intro">{projectsContent.intro}</p>
-        <div className="proj-grid">
-          {projectsContent.projects.map((p, i) => {
-            const Tag = p.link ? 'a' : 'div'
-            return (
-              <Tag
-                key={i}
-                className="proj-card"
-                {...(p.link ? { href: p.link, target: '_blank', rel: 'noopener noreferrer' } : {})}
-              >
-                <div className="proj-num">{p.num}</div>
-                <div className="proj-title">{p.title}</div>
-                <div className="proj-desc"><ProjectDescription text={p.description} easterEgg={p.easterEgg} /></div>
-                <div className="proj-status">{p.status}</div>
-              </Tag>
-            )
-          })}
-        </div>
+        {projectsContent.projects.map((p, i) => (
+          <div key={i} className="proj-item">
+            <div className="proj-meta-col">
+              <div className="proj-num">{p.num}</div>
+              <div className={`proj-status proj-status-${p.status.type}`}>{p.status.label}</div>
+            </div>
+            <div className="proj-body-col">
+              <div className="proj-title">{p.title}</div>
+              <div className="proj-tagline">{p.tagline}</div>
+              <div className="proj-desc"><ProjectDescription text={p.description} easterEgg={p.easterEgg} /></div>
+              {p.link && (
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="proj-link">
+                  View on LinkedIn →
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   )
