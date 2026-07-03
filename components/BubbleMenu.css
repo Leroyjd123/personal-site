@@ -24,7 +24,7 @@
   --bubble-size: 42px;
   width: var(--bubble-size);
   height: var(--bubble-size);
-  border-radius: 50%;
+  border-radius: 2px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   display: inline-flex;
   align-items: center;
@@ -42,7 +42,7 @@
   min-height: var(--bubble-size);
   height: var(--bubble-size);
   padding: 0 14px;
-  border-radius: calc(var(--bubble-size) / 2);
+  border-radius: 2px;
   gap: 8px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 15px;
@@ -74,7 +74,7 @@
 .bubble-menu .menu-line {
   width: 18px;
   height: 1.5px;
-  border-radius: 2px;
+  border-radius: 0;
   display: block;
   margin: 0 auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -140,7 +140,7 @@
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   letter-spacing: 0.08em;
-  border-radius: 999px;
+  border-radius: 2px;
   background: var(--pill-bg);
   color: var(--pill-color);
   text-decoration: none;
