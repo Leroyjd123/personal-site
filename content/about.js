@@ -12,7 +12,7 @@ export const aboutContent = {
     },
     {
       label: 'Outside work',
-      content: 'Trained keyboard player, Trinity Guildhall grades 1–6. Blogger since 2016. Speaks English, Hindi, Kannada, and Konkani.'
+      content: 'Trained keyboard player, Trinity Guildhall grades 1–6. Blogger since 2016. Speaks English, Hindi, Kannada, Konkani, and Tulu.'
     },
     {
       label: 'How I work',

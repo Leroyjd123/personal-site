@@ -1,16 +1,38 @@
 import '../styles/tailwind.css'
 import '../styles/globals.css'
+import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import ClientProviders from '../components/ClientProviders'
+import { BASE_URL, SITE_TITLE, SITE_DESCRIPTION, personJsonLd } from '../lib/seo'
 
-const BASE_URL = 'https://leroydsa.com'
+const serif = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+})
+
+const sans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Leroy Dsouza — Product Manager & Writer',
+    default: SITE_TITLE,
     template: '%s · Leroy Dsouza',
   },
-  description: 'Product manager, writer, and maker based on the Karnataka coast. Leading product at Ordrio. Writing essays, teardowns, and creative work since 2016.',
+  description: SITE_DESCRIPTION,
   keywords: ['product manager', 'Udupi', 'Karnataka', 'writer', 'Leroy Dsouza', 'Ordrio', 'product management', 'SaaS'],
   authors: [{ name: 'Leroy Dsouza', url: BASE_URL }],
   creator: 'Leroy Dsouza',
@@ -52,9 +74,6 @@ export const metadata = {
     canonical: BASE_URL,
   },
   manifest: '/site.webmanifest',
-  verification: {
-    google: '',
-  },
 }
 
 export const viewport = {
@@ -68,31 +87,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Leroy Dsouza',
-              url: BASE_URL,
-              jobTitle: 'Product Manager',
-              worksFor: { '@type': 'Organization', name: 'Ordrio Technologies' },
-              address: { '@type': 'PostalAddress', addressLocality: 'Udupi', addressRegion: 'Karnataka', addressCountry: 'IN' },
-              sameAs: [
-                'https://linkedin.com/in/leroydsa',
-              ],
-              description: 'Product manager, writer, and maker based on the Karnataka coast.',
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <script
           dangerouslySetInnerHTML={{

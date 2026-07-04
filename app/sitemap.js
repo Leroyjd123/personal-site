@@ -17,7 +17,7 @@ export default async function sitemap() {
     const posts = await getPosts()
     postRoutes = posts.map(post => ({
       url: `${BASE_URL}/writing/${post.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date(post.modifiedISO || post.dateISO || Date.now()),
       changeFrequency: 'monthly',
       priority: 0.7,
     }))

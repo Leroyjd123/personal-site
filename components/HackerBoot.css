@@ -48,7 +48,7 @@
 
 .hacker-boot-inner {
   width: min(600px, 90vw);
-  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: var(--font-mono), 'Fira Code', 'Courier New', monospace;
 }
 
 .hacker-boot-header {

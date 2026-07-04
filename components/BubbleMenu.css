@@ -44,7 +44,7 @@
   padding: 0 14px;
   border-radius: 2px;
   gap: 8px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-serif), serif;
   font-size: 15px;
   font-weight: 300;
   letter-spacing: 0.14em;
@@ -138,7 +138,7 @@
   width: 100%;
   padding: 18px 28px;
   font-size: clamp(1.4rem, 5vw, 2rem);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-serif), serif;
   font-weight: 300;
   letter-spacing: 0.08em;
   background: transparent;

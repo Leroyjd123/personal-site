@@ -31,7 +31,7 @@ export default function WritingFilter({ posts = [] }) {
       <div className="filter-row" id="fbrow">
         <span className="filter-label">Filter by type</span>
         <Select value={filter} onValueChange={setFilter}>
-          <SelectTrigger className="!h-auto w-[190px] rounded-[2px] border-[0.5px] border-[var(--border)] bg-[var(--card)] px-3 py-[6px] text-[12px] font-normal text-[var(--text)] font-[DM_Sans,sans-serif] shadow-none focus-visible:ring-0 focus-visible:border-[var(--text3)] data-[state=open]:border-[var(--text3)]">
+          <SelectTrigger className="!h-auto w-[190px] rounded-[2px] border-[0.5px] border-[var(--border)] bg-[var(--card)] px-3 py-[6px] text-[12px] font-normal text-[var(--text)] font-[family-name:var(--font-sans)] shadow-none focus-visible:ring-0 focus-visible:border-[var(--text3)] data-[state=open]:border-[var(--text3)]">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="rounded-[2px] border-[0.5px] border-[var(--border)] bg-[var(--card)] text-[var(--text)] shadow-[0_4px_16px_rgba(0,0,0,0.08)] ring-0">

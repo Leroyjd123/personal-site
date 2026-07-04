@@ -17,13 +17,15 @@ export async function generateMetadata({ params }) {
       description: clean,
       url: `https://leroydsa.com/writing/${slug}`,
       type: 'article',
-      publishedTime: post.date,
+      publishedTime: post.dateISO,
       authors: ['Leroy Dsouza'],
+      ...(post.featuredImage && { images: [{ url: post.featuredImage }] }),
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: clean,
+      ...(post.featuredImage && { images: [post.featuredImage] }),
     },
     alternates: { canonical: `https://leroydsa.com/writing/${slug}` },
   }
@@ -44,6 +46,13 @@ export default async function ArticlePage({ params }) {
         <div style={{ fontSize: '11px', color: 'var(--text3)', marginBottom: '32px', letterSpacing: '0.05em' }}>
           {post.date}
         </div>
+        {post.featuredImage && (
+          <img
+            src={post.featuredImage}
+            alt=""
+            style={{ maxWidth: '640px', width: '100%', height: 'auto', borderRadius: '4px', marginBottom: '32px' }}
+          />
+        )}
         <div
           className="body-text article-content"
           dangerouslySetInnerHTML={{ __html: post.content }}
